@@ -29,11 +29,6 @@ for file in files:
     pulse_time = np.asarray(features['pulse_time'])
     pulse_charge = np.asarray(features['pulse_charge'])
 
-    try:
-        reco = file_in['reco']
-    except:
-        pass
-
     energies = np.asarray(labels['energy'])
     zenith = np.asarray(labels['zenith'])
     azimuth = np.asarray(labels['azimuth'])

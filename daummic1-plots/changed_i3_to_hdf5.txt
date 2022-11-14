@@ -1,0 +1,29 @@
+This document is a summary of major changes to count number of hits per DOM/PMT.
+
+Note: due to the way I butchered the pone_i3_to_hdf5 file to work for gen2 I'd 
+just copy and paste from this file rather than try and re-adapt it for pone.
+There are also summary variables and features used for PMTs since there are
+multiple PMTs per DOM in gen2, but I don't think pone is using these special DOMs,
+so these lines can be ignored to save memory.
+
+HDF5 conversion
+
+Lines 82-86: summary variable dictionary created with keys
+Lines 218-234: calculation of hits per DOM
+Lines 255-258: conversion of lists to hdf5 friendly format
+Lines 260-263: add summary variables to dictionary
+Line 280: summary group created for hdf5
+Lines 286-291: summary data added to group
+
+Note: the functions called need to be adapted to include summary, should be fairly
+simple to just add it in as an argument and return (I replaced reco with it since
+gen2 doesn't have any reco)
+
+Plotting
+
+Lines 20-27: define arrays to store summary data (the frag_* arrays are if you
+wanted the data fragmented to look at individual files rather than everything,
+but it takes a lot more memory, so I'd recommend leaving those commented out)
+Line 34: read in summary dataset
+Lines 41-44: extract summary data
+Lines 60-75: pull out individual counts from arrays

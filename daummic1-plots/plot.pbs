@@ -9,14 +9,14 @@
 #SBATCH --error=plot_logs/run_batch_%A_%a.err
 #SBATCH --account=deyoungbuyin
 #SBATCH --qos=deyoungbuyin_large
-#SBATCH --mem=64G 
+#SBATCH --mem=128G 
 
+#Change this directory to the directory where the .hdf5 files are
 files_dir=/mnt/home/daummic1/IceCube/summary_hdf5/
-output_dir=/mnt/home/daummic1/IceCube/plot_test
 
 FILES=($files_dir/*.hdf5)
 
 top_dir=/mnt/home/daummic1/IceCube/
+#Change this directory to the directory the summary script is located
 python $top_dir/summary_plot.py -f $files_dir/*.hdf5
 
-cp $TMPDIR/*.png $output_dir/.
