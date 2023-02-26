@@ -24,7 +24,7 @@ if args.n:
 if len(files) > 1:
     files = sorted(glob.glob(files))
     
-    if n:
+    if args.n:
         files = files[:n]
     
     energies_all = []
